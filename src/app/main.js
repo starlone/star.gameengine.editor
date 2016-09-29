@@ -1,7 +1,6 @@
 /* global se:true */
 /* eslint no-undef: 'error' */
 
-var x;
 angular
   .module('app')
   .component('app', {
