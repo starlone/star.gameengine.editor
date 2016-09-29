@@ -1,23 +1,32 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Diagram Creater</span>
+            <span class="mdl-layout-title">Star Game Engine</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="new_map mdl-navigation__link" href="#">New Diagram</a>
-                <a class="build_sql mdl-navigation__link" href="#">Build SQL</a>
             </nav>
         </div>
     </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Diagram Creater</span>
-        <nav class="mdl-navigation">
-            <a class="new_map mdl-navigation__link" href="#">New Diagram</a>
-            <a class="build_sql mdl-navigation__link" href="#">Build SQL</a>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-        Hello World
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid">
+            <aside class="mdl-cell mdl-cell--3-col mdl-shadow--2dp">
+                <header class="mdl-layout__header">
+                    <div class="mdl-layout__header-row">
+                        <span class="mdl-layout-title">Project</span>
+                    </div>
+                </header>
+            </aside>
+            <main class="mdl-cell mdl-cell--6-col mdl-shadow--2dp mdl-card">
+                <canvas id="canvas" height="600"></canvas>
+            </main>
+            <aside class="mdl-cell mdl-cell--3-col mdl-shadow--2dp">
+                <header class="mdl-layout__header">
+                    <div class="mdl-layout__header-row">
+                        <span class="mdl-layout-title">Properties</span>
+                    </div>
+                </header>
+            </aside>
+        </div>
     </main>
-</div>
+</div>>
 
