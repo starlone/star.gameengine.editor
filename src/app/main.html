@@ -15,6 +15,18 @@
                         <span class="mdl-layout-title">Project</span>
                     </div>
                 </header>
+                <ul>
+                    <li>
+                        <div>
+                            Scene
+                        </div>
+                        <ul>
+                            <li ng-repeat="obj in scene.getObjs()">
+                                <a ng-click="showProperties(obj)">{{obj.name}}</a>
+                            </li>
+                        </ul>
+                     </li>
+                 </ul>
             </aside>
             <main class="mdl-cell mdl-cell--6-col mdl-shadow--2dp mdl-card">
                 <canvas id="canvas" height="600"></canvas>
@@ -25,6 +37,24 @@
                         <span class="mdl-layout-title">Properties</span>
                     </div>
                 </header>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--3-col">Name: </div>
+                    <div class="mdl-cell mdl-cell--9-col">{{prop.name}}</div>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col">X: </div>
+                            <div class="mdl-cell mdl-cell--9-col">{{prop.x}}</div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col">Y: </div>
+                            <div class="mdl-cell mdl-cell--9-col">{{prop.y}}</div>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </div>
     </main>
