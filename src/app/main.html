@@ -13,20 +13,19 @@
                 <header class="mdl-layout__header">
                     <div class="mdl-layout__header-row">
                         <span class="mdl-layout-title">Project</span>
+                        <div class="mdl-layout-spacer"></div>
+                        <nav class="mdl-navigation">
+                            <a class="mdl-navigation__link" href="" ng-click="newObject()">New</a>
+                        </nav>
                     </div>
                 </header>
-                <ul>
-                    <li>
-                        <div>
-                            Scene
-                        </div>
-                        <ul>
-                            <li ng-repeat="obj in scene.getObjs()">
-                                <a ng-click="showProperties(obj)">{{obj.name}}</a>
-                            </li>
-                        </ul>
-                     </li>
-                 </ul>
+                <ul class="mdl-list">
+                    <li class="mdl-list__item" ng-repeat="obj in scene.getObjs()">
+                        <span class="mdl-list__item-primary-content">
+                            <a ng-click="showProperties(obj)">{{obj.name}}</a>
+                        </span
+                    </li>
+                </ul>
             </aside>
             <main class="mdl-cell mdl-cell--6-col mdl-shadow--2dp mdl-card">
                 <canvas id="canvas" height="600"></canvas>
