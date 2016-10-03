@@ -1,61 +1,60 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Star Game Engine</span>
-            <div class="mdl-layout-spacer"></div>
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-            </nav>
-        </div>
-    </header>
-    <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid">
-            <aside class="mdl-cell mdl-cell--3-col mdl-shadow--2dp">
-                <header class="mdl-layout__header">
-                    <div class="mdl-layout__header-row">
-                        <span class="mdl-layout-title">Project</span>
-                        <div class="mdl-layout-spacer"></div>
-                        <nav class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="" ng-click="newObject()">New</a>
-                        </nav>
-                    </div>
-                </header>
-                <ul class="mdl-list">
-                    <li class="mdl-list__item" ng-repeat="obj in scene.getObjs()">
-                        <span class="mdl-list__item-primary-content">
-                            <a ng-click="showProperties(obj)">{{obj.name}}</a>
-                        </span
-                    </li>
-                </ul>
-            </aside>
-            <main class="mdl-cell mdl-cell--6-col mdl-shadow--2dp mdl-card">
-                <canvas id="canvas" height="600"></canvas>
-            </main>
-            <aside class="mdl-cell mdl-cell--3-col mdl-shadow--2dp">
-                <header class="mdl-layout__header">
-                    <div class="mdl-layout__header-row">
-                        <span class="mdl-layout-title">Properties</span>
-                    </div>
-                </header>
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--3-col">Name: </div>
-                    <div class="mdl-cell mdl-cell--9-col">{{prop.name}}</div>
-                </div>
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--6-col">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--3-col">X: </div>
-                            <div class="mdl-cell mdl-cell--9-col">{{prop.x}}</div>
-                        </div>
-                    </div>
-                    <div class="mdl-cell mdl-cell--6-col">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--3-col">Y: </div>
-                            <div class="mdl-cell mdl-cell--9-col">{{prop.y}}</div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
-</div>>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Star Game Engine</a>
+    </div>
+</nav>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Project
+                    <a class="mdl-navigation__link" href="" ng-click="newObject()">New</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="mdl-list">
+                        <li class="mdl-list__item" ng-repeat="obj in scene.getObjs()">
+                            <span class="mdl-list__item-primary-content">
+                                <a ng-click="showProperties(obj)">{{obj.name}}</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Game View</div>
+                <div class="panel-body">
+                    <canvas id="canvas" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Properties</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">Name: </div>
+                        <div class="col-md-9">{{prop.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-3">X: </div>
+                                <div class="col-md-9">{{prop.x}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-3">Y: </div>
+                                <div class="col-md-9">{{prop.y}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
