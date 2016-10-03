@@ -9,15 +9,17 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Project
-                    <a class="mdl-navigation__link" href="" ng-click="newObject()">New</a>
+                    <div class="row">
+                        <div class="col-xs-6">Project</div>
+                        <div class="col-xs-6 text-right">
+                            <a class="glyphicon glyphicon-plus" href="" ng-click="newObject()"></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
-                    <ul class="mdl-list">
-                        <li class="mdl-list__item" ng-repeat="obj in scene.getObjs()">
-                            <span class="mdl-list__item-primary-content">
-                                <a ng-click="showProperties(obj)">{{obj.name}}</a>
-                            </span>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="obj in scene.getObjs()">
+                            <a ng-click="showProperties(obj)">{{obj.name}}</a>
                         </li>
                     </ul>
                 </div>
@@ -42,13 +44,13 @@
                         <div class="col-md-9">{{prop.name}}</div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-3">X: </div>
                                 <div class="col-md-9">{{prop.x}}</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-3">Y: </div>
                                 <div class="col-md-9">{{prop.y}}</div>
