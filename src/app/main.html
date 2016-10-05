@@ -11,8 +11,14 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">Project</div>
-                        <div class="col-xs-6 text-right">
-                            <a class="glyphicon glyphicon-plus" href="" ng-click="newObject()"></a>
+                        <div class="col-xs-6 text-right dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                New Object<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="" ng-click="newObject()">Rect</a></li>
+                                <li><a href="" ng-click="newObject('circle')">Circle</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

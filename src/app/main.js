@@ -17,8 +17,13 @@ angular
 
       vm.game.run();
 
-      vm.newObject = function () {
-        var obj = se.factory.rect({name: 'Rect', x: 0, y: 0, w: 58, h: 50, fillColor: '#b0bec5'});
+      vm.newObject = function (type) {
+        var obj;
+        if (type === 'circle') {
+          obj = se.factory.circle({name: 'Circle', x: 0, y: 0, radius: 20, fillColor: '#b0bec5', lineWidth: 1});
+        } else {
+          obj = se.factory.rect({name: 'Rect', x: 0, y: 0, w: 58, h: 50, fillColor: '#b0bec5'});
+        }
         vm.scene.add(obj);
         vm.showProperties(obj);
       };
