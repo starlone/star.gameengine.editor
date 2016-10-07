@@ -5,17 +5,14 @@ angular
   .module('app')
   .component('app', {
     templateUrl: 'app/main.html',
-    controller: function ($scope) {
+    controller: function ($scope, $game) {
       var vm = $scope;
-      vm.game = new se.StarEngine('canvas');
+      vm.game = $game;
 
-      vm.scene = new se.Scene(vm.game, new se.GradientRenderer('#004CB3', '#8ED6FF'));
-      vm.game.addScene(vm.scene);
+      vm.scene = vm.game.getSceneCurrent();
 
-      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 300, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
+      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 100, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
       vm.scene.add(ground);
-
-      vm.game.run();
 
       vm.newObject = function (type) {
         var obj;
