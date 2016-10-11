@@ -11,7 +11,7 @@ angular
 
       vm.scene = vm.game.getSceneCurrent();
 
-      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 100, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
+      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 250, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
       vm.scene.add(ground);
 
       vm.newObject = function (type) {

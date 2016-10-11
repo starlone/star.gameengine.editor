@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Star Game Engine</a>
     </div>
@@ -8,48 +8,51 @@
     <div class="row">
         <div class="col-md-3">
             <se-panel title="Project">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                New Object<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="" ng-click="newObject()">Rect</a></li>
-                                <li><a href="" ng-click="newObject('circle')">Circle</a></li>
-                            </ul>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="obj in scene.getObjs()">
-                        <a ng-click="showProperties(obj)">{{obj.name}}</a>
-                    </li>
-                </ul>
-            </se-panel>
-        </div>
-        <div class="col-md-6">
-            <se-panel title="Game View">
                 <div>
-                    <se-gameview></se-gameview>
-                </div>
-            </se-panel>
-        </div>
-        <div class="col-md-3">
-            <se-panel title="Properties">
-                <div class="form-group">
-                    <label for="name" class="control-label col-md-3">Name: </label>
-                    <div class="col-md-9">
-                        <input type="text" id="name" class="form-control" ng-model="prop.name" />
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            New Object <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="" ng-click="newObject()">Rect</a></li>
+                            <li><a href="" ng-click="newObject('circle')">Circle</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="px" class="control-label col-md-3">X: </label>
-                    <div class="col-md-9">
-                        <input type="text" id="px" class="form-control" ng-model="prop.x" />
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="obj in scene.getObjs()">
+                            <a ng-click="showProperties(obj)">{{obj.name}}</a>
+                        </li>
+                    </ul>
+                </se-panel>
+            </div>
+            <div class="col-md-6">
+                <se-panel title="Game View">
+                    <div>
+                        <se-gameview></se-gameview>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="py" class="control-label col-md-3">Y: </label>
-                    <div class="col-md-9">
-                        <input type="text" id="py" class="form-control" ng-model="prop.y" />
+                </se-panel>
+            </div>
+            <div class="col-md-3">
+                <se-panel title="Properties">
+                    <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Name: </label>
+                        <div class="col-md-9">
+                            <input type="text" id="name" class="form-control" ng-model="prop.name" />
+                        </div>
                     </div>
-                </div>
-            </se-panel>
+                    <div class="form-group">
+                        <label for="px" class="control-label col-md-3">X: </label>
+                        <div class="col-md-9">
+                            <input type="text" id="px" class="form-control" ng-model="prop.x" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="py" class="control-label col-md-3">Y: </label>
+                        <div class="col-md-9">
+                            <input type="text" id="py" class="form-control" ng-model="prop.y" />
+                        </div>
+                    </div>
+                </se-panel>
+            </div>
         </div>
     </div>
-</div>
