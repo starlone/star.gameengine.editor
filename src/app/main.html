@@ -7,28 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Project</div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row" >
-                            <div class="col-md-6">
-                            <button type="button" class="btn btn-default btn-block" ng-click="newObject()">New Rect</button>
-                            </div>
-                            <div class="col-md-6">
-                            <button type="button" class="btn btn-default btn-block" ng-click="newObject('circle')">New Circle</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="obj in scene.getObjs()">
-                            <a ng-click="showProperties(obj)">{{obj.name}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <se-panelproject></se-panelproject>
         </div>
         <div class="col-md-6">
             <div class="panel panel-primary">
@@ -39,29 +18,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Properties</div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <label for="name" class="control-label col-md-3">Name: </label>
-                        <div class="col-md-9">
-                            <input type="text" id="name" class="form-control" ng-model="prop.name" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="px" class="control-label col-md-3">X: </label>
-                        <div class="col-md-9">
-                            <input type="text" id="px" class="form-control" ng-model="prop.x" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="py" class="control-label col-md-3">Y: </label>
-                        <div class="col-md-9">
-                            <input type="text" id="py" class="form-control" ng-model="prop.y" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <se-panelproperties></se-panelproperties>
         </div>
     </div>
 </div>

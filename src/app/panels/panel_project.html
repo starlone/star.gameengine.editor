@@ -1,0 +1,22 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Project</div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row" >
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-default btn-block" ng-click="newObject()">New Rect</button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-default btn-block" ng-click="newObject('circle')">New Circle</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="obj in scene.getObjs()">
+                <a ng-click="showObject(obj)">{{obj.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -2,9 +2,9 @@ angular
   .module('app')
   .component('seGameview', {
     templateUrl: 'app/gameview.html',
-    controller: function ($scope, $game) {
+    controller: function ($scope, $managegame) {
       var vm = $scope;
-      vm.game = $game;
+      vm.game = $managegame.game;
       vm.game.run();
     }
   });
