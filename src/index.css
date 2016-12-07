@@ -24,6 +24,6 @@ canvas {
     height: 100%;
 }
 
-#gameview {
+#gameview, #gameviewplay {
     height: 600px;
 }

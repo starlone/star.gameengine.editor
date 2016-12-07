@@ -1,3 +1,7 @@
+/* global se:true */
+/* global $:true */
+/* eslint no-undef: 'error' */
+
 angular
   .module('app')
   .component('seGameview', {
@@ -10,13 +14,17 @@ angular
       vm.playmsg = 'Play physics';
 
       vm.play = function () {
-        // Toggle
-        vm.game.runner.enabled = !vm.game.runner.enabled;
-        if (vm.game.runner.enabled) {
-          vm.playmsg = 'Stop physics';
-        } else {
-          vm.playmsg = 'Play physics';
-        }
+        $('#gameviewplay').html('');
+        $('#modalGame').modal('show');
       };
+      $('#modalGame').on('shown.bs.modal', function () {
+        var gameplay = new se.StarEngine('gameviewplay');
+        var scene = vm.game.getSceneCurrent();
+        var newscene = scene.clone(gameplay);
+        gameplay.addScene(newscene);
+        gameplay.run();
+        gameplay.getSceneCurrent().resetCamera();
+        gameplay.updateSize();
+      });
     }
   });
