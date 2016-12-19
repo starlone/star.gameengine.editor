@@ -8,7 +8,7 @@ gulp.task('partials', partials);
 
 function partials() {
   return gulp.src(conf.path.src('app/**/*.html'))
-    .pipe(htmlmin())
+    .pipe(htmlmin(conf.htmlmin))
     .pipe(angularTemplatecache('templateCacheHtml.js', {
       module: conf.ngModule,
       root: 'app'

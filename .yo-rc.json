@@ -1,6 +1,6 @@
 {
   "generator-fountain-angular1": {
-    "version": "1.0.0-rc1",
+    "version": "1.0.0-rc2",
     "props": {
       "framework": "angular1",
       "modules": "inject",
