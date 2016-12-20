@@ -13,10 +13,10 @@
         </li>
     </ul>
     <div class="panel-body">
-        <ul class="list-group">
-            <li class="list-group-item"  ng-repeat="obj in scene.getObjs()">
-                <a ng-click="showObject(obj)">{{obj.name}}</a>
-            </li>
-        </ul>
+        <div class="list-group">
+          <a href="" class="list-group-item" ng-class="{active: obj == manage.selected}"  ng-repeat="obj in scene.getObjs()" ng-click="showObject(obj)">
+            {{obj.name}}
+            </a>
+        </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ angular
     controller: function ($scope, $managegame) {
       var vm = $scope;
       vm.scene = $managegame.game.getSceneCurrent();
+      vm.manage = $managegame;
 
       vm.newObject = function (type) {
         var obj;
