@@ -19,7 +19,7 @@ angular
         var newscene = scene.clone(gameplay);
         gameplay.addScene(newscene);
         gameplay.run();
-        gameplay.getSceneCurrent().resetCamera();
+        gameplay.viewport.resetPivot();
         gameplay.updateSize();
       });
     }
