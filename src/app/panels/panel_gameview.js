@@ -8,6 +8,7 @@ angular
       vm.game.runner.enabled = false;
       vm.game.run();
 
+      // Move object by keyboard
       var keydown = function (key) {
         var x = 0;
         var y = 0;
@@ -27,6 +28,31 @@ angular
         if ($managegame.selected) {
           keydown(e.keyCode);
         }
+      });
+
+      var x = 0;
+      var y = 0;
+      var gameview = document.getElementById('gameview');
+      var isDown = false;
+      gameview.addEventListener('mousedown', function (e) {
+        x = e.offsetX;
+        y = e.offsetY;
+        isDown = true;
+      });
+      gameview.addEventListener('mouseup', function () {
+        isDown = false;
+      });
+      gameview.addEventListener('mousemove', function (e) {
+        if (!isDown) {
+          return;
+        }
+        var x2 = x;
+        var y2 = y;
+        x = e.offsetX;
+        y = e.offsetY;
+        var x3 = x2 - x;
+        var y3 = y2 - y;
+        vm.game.getSceneCurrent().getCamera().transform.move(x3, y3);
       });
     }
   });
