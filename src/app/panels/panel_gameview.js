@@ -34,5 +34,13 @@ angular
           keydown(e.keyCode);
         }
       });
+
+      document.getElementById('gameview').addEventListener('wheel', function (e) {
+        var y = 0.1;
+        if (e.deltaY < 0) {
+          y *= -1;
+        }
+        vm.game.viewport.scale += y;
+      });
     }
   });
