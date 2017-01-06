@@ -4,7 +4,7 @@
         <div id="gameview"></div>
         <div class="form-group">
             <label for="scale" class="control-label">Scale: </label>
-            <input type="number" id="scale" class="form-control" ng-model="game.viewport.scale" />
+            <input type="number" id="scale" class="form-control" ng-model="game.viewport.scale" ng-model-options="{ getterSetter: true }" />
         </div>
     </div>
 </div>

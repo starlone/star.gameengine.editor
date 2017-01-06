@@ -36,11 +36,13 @@ angular
       });
 
       document.getElementById('gameview').addEventListener('wheel', function (e) {
-        var y = 0.1;
+        var y = 0.05;
         if (e.deltaY < 0) {
           y *= -1;
         }
-        vm.game.viewport.scale += y;
+        var scale = vm.game.viewport.scale();
+        scale += y;
+        vm.game.viewport.scale(scale);
       });
     }
   });
