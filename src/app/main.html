@@ -1,22 +1,26 @@
+<se-gameview></se-gameview>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Star Game Engine</a>
+        <div class="col-xs-3">
+            <button type="button" class="btn btn-default" data-toggle="sidebar" data-target=".sidebar1">
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </button>
+        </div>
+        <div class="col-xs-6 title">
+            <span>Star Game Engine</span>
+        </div>
+        <div class="col-xs-3" style="text-align: right">
+            <button type="button" class="btn btn-default"  data-toggle="sidebar" data-target=".sidebar2">
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </button>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <se-panelcontrolgame></se-panelcontrolgame>
-            <se-panelproject></se-panelproject>
-        </div>
-        <div class="col-md-6">
-            <se-gameview></se-gameview>
-        </div>
-        <div class="col-md-3">
-            <se-panelproperties></se-panelproperties>
-        </div>
-    </div>
+<div class="col-xs-7 col-sm-3 col-lg-2 sidebar1 sidebar sidebar-left sidebar-animate">
+    <se-panelcontrolgame></se-panelcontrolgame>
+    <se-panelproject></se-panelproject>
+</div>
+<div class="col-xs-7 col-sm-3 col-lg-2 sidebar2 sidebar sidebar-right sidebar-animate">
+    <se-panelproperties></se-panelproperties>
 </div>
