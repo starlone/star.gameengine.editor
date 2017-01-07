@@ -9,16 +9,28 @@ angular
     controller: function ($scope, $managegame) {
       var vm = $scope;
       vm.game = $managegame.game;
+      vm.isPlay = false;
+      var gameplay = null;
       vm.play = function () {
-        $('#gameviewplay').html('');
-        $('#modalGame').modal('show');
+        if (vm.isPlay) {
+          vm.isPlay = false;
+          $('#gameview canvas').show();
+          $('#gameview').html('');
+          vm.game.viewport = new se.ViewPort('gameview');
+          gameplay = null;
+        } else {
+          $('#gameview canvas').hide();
+          var div = $('<div id="gameviewplay"/>');
+          $('#gameview').append(div);
+          gameplay = new se.StarEngine('gameviewplay');
+          var scene = vm.game.getSceneCurrent();
+          var newscene = scene.clone(gameplay);
+          gameplay.addScene(newscene);
+          gameplay.run();
+          vm.isPlay = true;
+        }
       };
       $('#modalGame').on('shown.bs.modal', function () {
-        var gameplay = new se.StarEngine('gameviewplay');
-        var scene = vm.game.getSceneCurrent();
-        var newscene = scene.clone(gameplay);
-        gameplay.addScene(newscene);
-        gameplay.run();
       });
     }
   });
