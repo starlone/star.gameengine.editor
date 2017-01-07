@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-body">
         <button type="button" class="play btn" ng-class="{'btn-success': !isPlay, 'btn-danger': isPlay}" ng-click="play()">
-            {{ isPlay ? 'Stop' : 'Play' }}
+            {{ isPlay ? 'Stop' : 'Play' }} <ng-md-icon icon="{{ isPlay ? 'stop' : 'play_arrow'}}" />
         </button>
     </div>
 </div>
