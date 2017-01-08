@@ -9,6 +9,7 @@ angular
     controller: function ($scope, $managegame) {
       var vm = $scope;
       vm.game = $managegame.game;
+      vm.manage = $managegame;
 
       vm.scene = vm.game.getSceneCurrent();
 

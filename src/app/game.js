@@ -9,7 +9,8 @@ angular
     game.addScene(scene);
     return {
       game: game,
-      selected: null
+      selected: null,
+      isPlaying: false
     };
   });
 

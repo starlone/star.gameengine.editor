@@ -1,22 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-body">
-        <button type="button" class="play btn" ng-class="{'btn-success': !isPlay, 'btn-danger': isPlay}" ng-click="play()">
-            {{ isPlay ? 'Stop' : 'Play' }} <ng-md-icon icon="{{ isPlay ? 'stop' : 'play_arrow'}}" />
+        <button type="button" class="play btn" ng-class="{'btn-success': !manage.isPlaying, 'btn-danger': manage.isPlaying}" ng-click="play()">
+            {{ manage.isPlaying ? 'Stop' : 'Play' }} <ng-md-icon icon="{{ manage.isPlaying ? 'stop' : 'play_arrow'}}" />
         </button>
-    </div>
-</div>
-
-<!-- Modal -->
-<div id="modalGame" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Game Play</h4>
-            </div>
-            <div class="modal-body">
-                <div id="gameviewplay"></div>
-            </div>
-        </div>
     </div>
 </div>

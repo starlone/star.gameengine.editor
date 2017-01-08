@@ -9,10 +9,11 @@ angular
     controller: function ($scope, $managegame) {
       var vm = $scope;
       vm.game = $managegame.game;
-      vm.isPlay = false;
+      vm.manage = $managegame;
       var gameplay = null;
       vm.play = function () {
-        if (vm.isPlay) {
+        if (vm.manage.isPlaying) {
+          vm.manage.isPlaying = false;
           vm.isPlay = false;
           $('#gameview canvas').show();
           $('#gameview').html('');
@@ -27,10 +28,8 @@ angular
           var newscene = scene.clone(gameplay);
           gameplay.addScene(newscene);
           gameplay.run();
-          vm.isPlay = true;
+          vm.manage.isPlaying = true;
         }
       };
-      $('#modalGame').on('shown.bs.modal', function () {
-      });
     }
   });
