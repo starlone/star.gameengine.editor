@@ -11,18 +11,17 @@ angular
       vm.game = $managegame.game;
       vm.manage = $managegame;
       var gameplay = null;
+      var div = $('<div id="gameviewplay"/>').hide();
+      $('#gameview').append(div);
       vm.play = function () {
         if (vm.manage.isPlaying) {
           vm.manage.isPlaying = false;
-          vm.isPlay = false;
           $('#gameview canvas').show();
-          $('#gameview').html('');
-          vm.game.viewport = new se.ViewPort('gameview');
+          $('#gameviewplay').hide();
           gameplay = null;
         } else {
           $('#gameview canvas').hide();
-          var div = $('<div id="gameviewplay"/>');
-          $('#gameview').append(div);
+          $('#gameviewplay').show();
           gameplay = new se.StarEngine('gameviewplay');
           var scene = vm.game.getSceneCurrent();
           var newscene = scene.clone(gameplay);
