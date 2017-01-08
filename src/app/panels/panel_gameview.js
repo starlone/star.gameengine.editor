@@ -11,7 +11,8 @@ angular
       vm.game.runner.enabled = false;
       vm.game.run();
 
-      vm.game.viewport.addInteraction(new se.InteractionPan(vm.game.getSceneCurrent().getCamera()));
+      vm.game.viewport.addInteraction(new se.PanInteraction(vm.game.getSceneCurrent().getCamera()));
+      vm.game.viewport.addInteraction(new se.WheelZoomInteraction());
 
       // Move object by keyboard
       var keydown = function (key) {
@@ -33,16 +34,6 @@ angular
         if ($managegame.selected) {
           keydown(e.keyCode);
         }
-      });
-
-      document.getElementById('gameview').addEventListener('wheel', function (e) {
-        var y = 0.05;
-        if (e.deltaY < 0) {
-          y *= -1;
-        }
-        var scale = vm.game.viewport.scale();
-        scale += y;
-        vm.game.viewport.scale(scale);
       });
     }
   });
