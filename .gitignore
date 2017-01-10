@@ -3,4 +3,4 @@ coverage/
 node_modules/
 bower_components/
 *.log
-#dist/
+dist/
