@@ -28,12 +28,16 @@ angular
           y = 3;
         }
         $managegame.selected.transform.move(x, y);
+        vm.$apply();
       };
 
       document.addEventListener('keydown', function (e) {
         if ($managegame.selected) {
           keydown(e.keyCode);
         }
+      });
+      document.addEventListener('sePanEnd', function () {
+        vm.$apply();
       });
     }
   });
