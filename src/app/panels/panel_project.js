@@ -22,7 +22,7 @@ angular
       };
 
       vm.showObject = function (obj) {
-        $managegame.selected = obj;
+        $managegame.setSelected(obj);
       };
     }
   });

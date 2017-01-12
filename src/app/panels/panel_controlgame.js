@@ -20,6 +20,7 @@ angular
           $('#gameviewplay').hide();
           gameplay = null;
         } else {
+          $managegame.setSelected(null);
           $('#gameview canvas').hide();
           $('#gameviewplay').show();
           gameplay = new se.StarEngine('gameviewplay');
