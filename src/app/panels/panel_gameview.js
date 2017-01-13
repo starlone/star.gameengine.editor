@@ -11,7 +11,8 @@ angular
       vm.game.runner.enabled = false;
       vm.game.run();
 
-      vm.game.viewport.addInteraction(new se.PanInteraction(vm.game.getSceneCurrent().getCamera()));
+      var pan = new se.PanInteraction(vm.game.getSceneCurrent().getCamera());
+      vm.game.viewport.addInteraction(pan);
       vm.game.viewport.addInteraction(new se.WheelZoomInteraction());
 
       // Move object by keyboard
@@ -42,8 +43,44 @@ angular
           keydown(e.keyCode);
         }
       });
+
       document.addEventListener('sePanEnd', function () {
         vm.$apply();
       });
+
+      function changeObjectPan(coordinate) {
+        var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
+        if (obj === $managegame.selected) {
+          pan.target = $managegame.selected;
+          pan.inverse = false;
+        } else {
+          pan.target = vm.game.getSceneCurrent().getCamera();
+          pan.inverse = true;
+        }
+      }
+
+      function finishPan() {
+        pan.target = vm.game.getSceneCurrent().getCamera();
+        pan.inverse = true;
+      }
+
+      var element = vm.game.viewport.element;
+
+      element.addEventListener('mousedown', function (e) {
+        var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
+        changeObjectPan(coordinate);
+      });
+
+      element.addEventListener('touchstart', function (e) {
+        if (e.touches.length === 1) {
+          var t = e.touches[0];
+          var coordinate = vm.game.viewport.transformPixelToCoordinate(t.pageX, t.pageY);
+          changeObjectPan(coordinate);
+        }
+      });
+
+      element.addEventListener('mouseend', finishPan());
+
+      element.addEventListener('touchend', finishPan());
     }
   });
