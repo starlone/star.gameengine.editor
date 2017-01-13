@@ -1,7 +1,3 @@
-<div class="panel panel-primary">
-    <div class="panel-body">
-        <button type="button" class="play btn" ng-class="{'btn-success': !manage.isPlaying, 'btn-danger': manage.isPlaying}" ng-click="play()">
-            {{ manage.isPlaying ? 'Stop' : 'Play' }} <ng-md-icon icon="{{ manage.isPlaying ? 'stop' : 'play_arrow'}}" />
-        </button>
-    </div>
-</div>
+<button type="button" class="play btn" ng-class="{'btn-success': !manage.isPlaying, 'btn-danger': manage.isPlaying}" ng-click="play()">
+    {{ manage.isPlaying ? 'Stop' : 'Play' }} <ng-md-icon icon="{{ manage.isPlaying ? 'stop' : 'play_arrow'}}" />
+</button>

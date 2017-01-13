@@ -29,10 +29,6 @@ canvas {
   height: 100%;
 }
 
- {
-  height: 600px;
-}
-
 #gameviewplay, #gameview, se-gameview {
   width: 100%;
   height: 100%;
@@ -48,9 +44,16 @@ canvas {
 
 .sidebar {
   min-height: auto;
-  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15);
   bottom: auto;
   padding-top: 5px;
+}
+
+.sidebar1 {
+  top: 101px;
+}
+
+.navbar.navbar-default {
+  margin-bottom: 10px;
 }
 
 .navbar .navbar-toggle.toggle-sidebar, [data-toggle="sidebar"] {
