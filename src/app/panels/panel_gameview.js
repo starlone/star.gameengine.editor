@@ -31,6 +31,14 @@ angular
         vm.$apply();
       };
 
+      vm.selectObj = function (e) {
+        var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
+        console.log(coordinate);
+        var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
+        console.log(obj);
+        $managegame.setSelected(obj);
+      };
+
       document.addEventListener('keydown', function (e) {
         if ($managegame.selected) {
           keydown(e.keyCode);
