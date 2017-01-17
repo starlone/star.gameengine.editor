@@ -13,7 +13,7 @@ angular
 
       var pan = new se.PanInteraction(vm.game.getSceneCurrent().getCamera());
       vm.game.viewport.addInteraction(pan);
-      vm.game.viewport.addInteraction(new se.WheelZoomInteraction());
+      vm.game.viewport.addInteraction(new se.ZoomInteraction());
 
       // Move object by keyboard
       var keydown = function (key) {
