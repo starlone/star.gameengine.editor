@@ -43,13 +43,13 @@ canvas {
 }
 
 .sidebar {
-  min-height: auto;
   bottom: auto;
   padding-top: 5px;
 }
 
 .sidebar1 {
   top: 101px;
+  min-height: 90%;
 }
 
 .navbar.navbar-default {
@@ -69,3 +69,15 @@ body .navbar span {
   color: white;
   font-size: 20px;
 }
+
+se-panelproject {
+  position: absolute;
+  display: block;
+  height: 90%;
+}
+
+se-panelproject .panel {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
