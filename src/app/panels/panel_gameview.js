@@ -1,6 +1,3 @@
-/* global se:true */
-/* eslint no-undef: 'error' */
-
 angular
   .module('app')
   .component('seGameview', {

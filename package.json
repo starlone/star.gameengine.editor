@@ -59,7 +59,8 @@
   "eslintConfig": {
     "globals": {
       "expect": true,
-      "angular": true
+      "angular": true,
+      "se": true
     },
     "root": true,
     "env": {

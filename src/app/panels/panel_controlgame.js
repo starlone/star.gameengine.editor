@@ -1,6 +1,4 @@
-/* global se:true */
 /* global $:true */
-/* eslint no-undef: 'error' */
 
 angular
   .module('app')
