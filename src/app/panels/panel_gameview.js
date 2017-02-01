@@ -1,16 +1,30 @@
 angular
   .module('app')
   .component('seGameview', {
+    bindings: {
+      ngGame: '=',
+      interaction: '='
+    },
     templateUrl: 'app/panels/panel_gameview.html',
-    controller: function ($scope, $managegame) {
+    controller: function ($element, $scope, $managegame) {
       var vm = $scope;
-      vm.game = $managegame.game;
-      vm.game.runner.enabled = false;
-      vm.game.run();
 
-      var pan = new se.PanInteraction(vm.game.getSceneCurrent().getCamera());
-      vm.game.viewport.addInteraction(pan);
-      vm.game.viewport.addInteraction(new se.ZoomInteraction());
+      vm.manage = $managegame;
+
+      var interaction = this.interaction || true;
+
+      var viewport = new se.ViewPort($element[0]);
+      var pan;
+      this.$onInit = function () {
+        vm.game = this.ngGame;
+        vm.game.viewport = viewport;
+
+        if (interaction) {
+          pan = new se.PanInteraction(vm.game.getSceneCurrent().getCamera());
+          viewport.addInteraction(pan);
+          viewport.addInteraction(new se.ZoomInteraction());
+        }
+      };
 
       // Move object by keyboard
       var keydown = function (key) {
@@ -29,11 +43,11 @@ angular
         vm.$apply();
       };
 
-      vm.selectObj = function (e) {
+      function selectObj(e) {
         var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
         var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
         $managegame.setSelected(obj);
-      };
+      }
 
       document.addEventListener('keydown', function (e) {
         if ($managegame.selected) {
@@ -61,23 +75,27 @@ angular
         pan.inverse = true;
       }
 
-      var element = vm.game.viewport.element;
+      if (interaction) {
+        var element = viewport.element;
 
-      element.addEventListener('mousedown', function (e) {
-        var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
-        changeObjectPan(coordinate);
-      });
-
-      element.addEventListener('touchstart', function (e) {
-        if (e.touches.length === 1) {
-          var t = e.touches[0];
-          var coordinate = vm.game.viewport.transformPixelToCoordinate(t.pageX, t.pageY);
+        element.addEventListener('mousedown', function (e) {
+          var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
           changeObjectPan(coordinate);
-        }
-      });
+        });
 
-      element.addEventListener('mouseend', finishPan());
+        element.addEventListener('touchstart', function (e) {
+          if (e.touches.length === 1) {
+            var t = e.touches[0];
+            var coordinate = vm.game.viewport.transformPixelToCoordinate(t.pageX, t.pageY);
+            changeObjectPan(coordinate);
+          }
+        });
 
-      element.addEventListener('touchend', finishPan());
+        element.addEventListener('mouseend', finishPan);
+
+        element.addEventListener('touchend', finishPan);
+
+        element.addEventListener('dblclick', selectObj);
+      }
     }
   });

@@ -1,5 +1,3 @@
-/* global $:true */
-
 angular
   .module('app')
   .component('sePanelcontrolgame', {
@@ -9,19 +7,14 @@ angular
       vm.game = $managegame.game;
       vm.manage = $managegame;
       var gameplay = null;
-      var div = $('<div id="gameviewplay"/>').hide();
-      $('#gameview').append(div);
       vm.play = function () {
         if (vm.manage.isPlaying) {
           vm.manage.isPlaying = false;
-          $('#gameview canvas').show();
-          $('#gameviewplay').hide();
           gameplay = null;
         } else {
           $managegame.setSelected(null);
-          $('#gameview canvas').hide();
-          $('#gameviewplay').show();
-          gameplay = new se.StarEngine('gameviewplay');
+          gameplay = new se.StarEngine();
+          vm.manage.gamePlay = gameplay;
           var scene = vm.game.getSceneCurrent();
           var newscene = scene.clone(gameplay);
           gameplay.addScene(newscene);
