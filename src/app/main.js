@@ -4,15 +4,23 @@ angular
   .module('app')
   .component('app', {
     templateUrl: 'app/main.html',
-    controller: function ($scope, $managegame) {
+    controller: function ($scope, $managegame, $localStorage, $window) {
       var vm = $scope;
       vm.game = $managegame.game;
       vm.manage = $managegame;
 
       vm.scene = vm.game.getSceneCurrent();
 
-      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 250, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
-      vm.scene.add(ground);
+      vm.save = function () {
+        $managegame.setSelected();
+        var json = JSON.stringify(vm.game.getSceneCurrent().json());
+        $localStorage.save = json;
+      };
+
+      vm.clear = function () {
+        $localStorage.save = null;
+        $window.location.reload();
+      };
 
       vm.resize = function () {
         if (window.innerWidth > 768) {

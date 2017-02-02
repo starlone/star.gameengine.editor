@@ -47,6 +47,7 @@ angular
         var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
         var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
         $managegame.setSelected(obj);
+        $scope.$apply();
       }
 
       document.addEventListener('keydown', function (e) {

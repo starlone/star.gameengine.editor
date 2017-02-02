@@ -3,10 +3,19 @@
 
 angular
   .module('app')
-  .factory('$managegame', function () {
+  .factory('$managegame', function ($localStorage) {
     var game = new se.StarEngine();
     game.runner.enabled = false;
-    var scene = new se.Scene(new se.GradientRenderer('#004CB3', '#8ED6FF'));
+    var scene;
+    if ($localStorage.save) {
+      var json = $localStorage.save;
+      json = JSON.parse(json);
+      scene = se.load.scene(json);
+    } else {
+      scene = new se.Scene(new se.GradientRenderer('#004CB3', '#8ED6FF'));
+      var ground = se.factory.rect({name: 'Ground', x: 1000, y: 250, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
+      scene.add(ground);
+    }
     game.addScene(scene);
     game.run();
     var renderOld = null;
