@@ -1,9 +1,14 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">Properties</div>
+    <div class="panel-heading">
+        Properties
+        <a href="" class="pull-right"  data-toggle="sidebar" data-target=".sidebar2">
+            <ng-md-icon icon="keyboard_arrow_right"></ng-md-icon>
+        </a>
+    </div>
     <div class="panel-body">
-      <div ng-if="manage.selected">
-        <div class="form-group col-md-12">
-            <label for="name" class="control-label">Name: </label>
+        <div ng-if="manage.selected">
+            <div class="form-group col-md-12">
+                <label for="name" class="control-label">Name: </label>
             <input type="text" id="name" class="form-control" ng-model="manage.selected.name" />
         </div>
         <div class="form-group col-xs-6">

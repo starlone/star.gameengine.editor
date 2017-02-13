@@ -2,30 +2,41 @@
 <se-gameview ng-game="manage.gamePlay" ng-if="manage.isPlaying" interaction="false"></se-gameview>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="col-xs-3">
-            <button type="button" class="btn btn-default" data-toggle="sidebar" data-target=".sidebar1">
-                <ng-md-icon icon="menu"></ng-md-icon>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="save()" >
-                Save
-            </button>
-            <button type="button" class="btn btn-default" ng-click="clear()" >
-                Clear
-            </button>
-        </div>
-        <div class="col-xs-6 title">
-            <span>Star Game Engine</span>
-        </div>
-        <div class="col-xs-3" style="text-align: right">
-            <button type="button" class="btn btn-default"  data-toggle="sidebar" data-target=".sidebar2">
-                <ng-md-icon icon="menu"></ng-md-icon>
-            </button>
+        <a class="navbar-brand" href="#">
+            Star Game Engine
+        </a>
+        <div class="pull-right" style="padding-top: 13px;">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <ng-md-icon icon="more_vert"></ng-md-icon>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#" ng-click="save()">Save</a></li>
+                    <li><a href="#" ng-click="clear()">Clear</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid col-md-12">
-    <se-panelcontrolgame></se-panelcontrolgame>
+<div class="container-fluid row">
+    <div class="col-xs-6">
+        <div>
+            <se-panelcontrolgame></se-panelcontrolgame>
+        </div>
+        <div style="margin-top: 9px" ng-show="!manage.isPlaying">
+            <button type="button" class="btn btn-default" data-toggle="sidebar" data-target=".sidebar1">
+                <ng-md-icon icon="keyboard_arrow_right"></ng-md-icon>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right" ng-show="!manage.isPlaying">
+            <button type="button" class="btn btn-default" data-toggle="sidebar" data-target=".sidebar2">
+                <ng-md-icon icon="keyboard_arrow_left"></ng-md-icon>
+            </button>
+        </div>
+    </div>
 </div>
 
 <div class="col-xs-7 col-sm-3 col-lg-2 sidebar1 sidebar sidebar-left sidebar-animate sidebar-md-show">

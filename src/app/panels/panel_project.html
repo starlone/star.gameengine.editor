@@ -1,5 +1,10 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">Project</div>
+    <div class="panel-heading">
+        Project
+        <a href="" class="pull-right"  data-toggle="sidebar" data-target=".sidebar1">
+            <ng-md-icon icon="keyboard_arrow_left"></ng-md-icon>
+        </a>
+    </div>
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row" >
@@ -14,8 +19,11 @@
     </ul>
     <div class="panel-body">
         <div class="list-group">
-          <a href="" class="list-group-item" ng-class="{active: obj == manage.selected}"  ng-repeat="obj in scene.getObjs()" ng-click="showObject(obj)">
-            {{obj.name}}
+            <a href="" class="list-group-item" ng-class="{active: obj == manage.selected}"  ng-repeat="obj in scene.getObjs()" ng-click="showObject(obj)">
+                {{obj.name}}
+                <div class="pull-right">
+                    <ng-md-icon  icon="delete" ng-click="deleteObj()" ng-show="obj == manage.selected" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon>
+                </div>
             </a>
         </div>
     </div>

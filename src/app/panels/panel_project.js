@@ -21,5 +21,9 @@ angular
       vm.showObject = function (obj) {
         $managegame.setSelected(obj);
       };
+
+      vm.deleteObj = function () {
+        $managegame.deleteSelected();
+      };
     }
   });
