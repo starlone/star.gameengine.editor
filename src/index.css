@@ -7,8 +7,12 @@ body {
   overflow: hidden;
 }
 
-.navbar-default .navbar-brand, .navbar-default a, .panel-heading a {
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-nav > li > a, .panel-heading a {
   color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
 }
 
 .navbar-default, .panel-primary .panel-heading {
@@ -27,8 +31,8 @@ body {
   z-index: 9;
 }
 
-.sidebar {
-  z-index:8;
+.navbar.navbar-default {
+  margin-bottom: 10px;
 }
 
 canvas {
@@ -52,30 +56,13 @@ canvas {
 
 .sidebar {
   bottom: auto;
-  padding-top: 5px;
+  padding-top: 10px;
+  z-index: 8;
 }
 
 .sidebar1 {
-  top: 101px;
+  top: 99px;
   min-height: 90%;
-}
-
-.navbar.navbar-default {
-  margin-bottom: 10px;
-}
-
-.navbar .navbar-toggle.toggle-sidebar, [data-toggle="sidebar"] {
-  display: inline;
-}
-
-.navbar div button, .navbar .title {
-  margin-top: 5px;
-  text-align: center;
-}
-
-body .navbar span {
-  color: white;
-  font-size: 20px;
 }
 
 se-panelproject {
