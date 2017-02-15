@@ -7,13 +7,15 @@
     </div>
     <ul class="list-group">
         <li class="list-group-item">
-            <div class="row" >
-                <div class="col-xs-6">
-                    <button type="button" class="btn btn-default btn-block" ng-click="newObject()">New Rect</button>
-                </div>
-                <div class="col-xs-6">
-                    <button type="button" class="btn btn-default btn-block" ng-click="newObject('circle')">New Circle</button>
-                </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    New <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" ng-click="newObject('rect')">Rect</a></li>
+                    <li><a href="#" ng-click="newObject('circle')">Circle</a></li>
+                    <li><a href="#" ng-click="newObject()">Draw</a></li>
+                </ul>
             </div>
         </li>
     </ul>
@@ -22,6 +24,7 @@
             <a href="" class="list-group-item" ng-class="{active: obj == manage.selected}"  ng-repeat="obj in scene.getObjs()" ng-click="showObject(obj)">
                 {{obj.name}}
                 <div class="pull-right">
+                    <!-- <ng-md-icon  icon="edit" ng-click="editObj()" ng-show="obj == manage.selected" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon> -->
                     <ng-md-icon  icon="delete" ng-click="deleteObj()" ng-show="obj == manage.selected" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon>
                 </div>
             </a>

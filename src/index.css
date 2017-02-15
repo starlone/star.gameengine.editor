@@ -69,6 +69,7 @@ se-panelproject {
   position: absolute;
   display: block;
   height: 90%;
+  width: 95%;
 }
 
 se-panelproject .panel {

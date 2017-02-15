@@ -11,18 +11,19 @@ angular
 
       vm.manage = $managegame;
 
-      var interaction = this.interaction || true;
-
       var viewport = new se.ViewPort($element[0]);
       var pan;
       this.$onInit = function () {
         vm.game = this.ngGame;
         vm.game.viewport = viewport;
 
+        var interaction = this.interaction || true;
+
         if (interaction) {
           pan = new se.PanInteraction(vm.game.getSceneCurrent().getCamera());
           viewport.addInteraction(pan);
           viewport.addInteraction(new se.ZoomInteraction());
+          viewport.addInteraction(new SelectPanInteraction());
         }
       };
 
@@ -43,21 +44,23 @@ angular
         vm.$apply();
       };
 
-      function selectObj(e) {
-        var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
-        var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
-        $managegame.setSelected(obj);
-        $scope.$apply();
-      }
-
-      document.addEventListener('keydown', function (e) {
+      $(document).off('keydown.se');
+      $(document).on('keydown.se', function (e) {
         if ($managegame.selected) {
           keydown(e.keyCode);
         }
       });
 
-      document.addEventListener('sePanEnd', function () {
+      $(document).off('sePanEnd');
+      $(document).on('sePanEnd', function () {
         vm.$apply();
+      });
+
+      $(document).off('seDrawEnd');
+      $(document).on('seDrawEnd', function () {
+        $managegame.selected.setRigidBody(new se.RigidBody());
+        $managegame.setSelected(null);
+        $scope.$apply();
       });
 
       function changeObjectPan(coordinate) {
@@ -71,32 +74,46 @@ angular
         }
       }
 
-      function finishPan() {
-        pan.target = vm.game.getSceneCurrent().getCamera();
-        pan.inverse = true;
-      }
-
-      if (interaction) {
-        var element = viewport.element;
-
-        element.addEventListener('mousedown', function (e) {
+      function SelectPanInteraction() {
+        this.mousedown = function (e) {
           var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
           changeObjectPan(coordinate);
-        });
-
-        element.addEventListener('touchstart', function (e) {
+        };
+        this.touchstart = function (e) {
           if (e.touches.length === 1) {
             var t = e.touches[0];
             var coordinate = vm.game.viewport.transformPixelToCoordinate(t.pageX, t.pageY);
             changeObjectPan(coordinate);
           }
-        });
+        };
+        this.finishPan = function () {
+          pan.target = vm.game.getSceneCurrent().getCamera();
+          pan.inverse = true;
+        };
 
-        element.addEventListener('mouseend', finishPan);
-
-        element.addEventListener('touchend', finishPan);
-
-        element.addEventListener('dblclick', selectObj);
+        this.selectObj = function (e) {
+          var coordinate = vm.game.viewport.transformPixelToCoordinate(e.pageX, e.pageY);
+          var obj = vm.game.getSceneCurrent().getObjectFromCoordinate(coordinate);
+          $managegame.setSelected(obj);
+          $scope.$apply();
+        };
       }
+      se.inherit(se.Interaction, SelectPanInteraction);
+      SelectPanInteraction.prototype.active = function () {
+        var element = this.parent.element;
+        element.addEventListener('mousedown', this.mousedown);
+        element.addEventListener('touchstart', this.touchstart);
+        element.addEventListener('mouseend', this.finishPan);
+        element.addEventListener('touchend', this.finishPan);
+        element.addEventListener('dblclick', this.selectObj);
+      };
+      SelectPanInteraction.prototype.desactive = function () {
+        var element = this.parent.element;
+        element.removeEventListener('mousedown', this.mousedown);
+        element.removeEventListener('touchstart', this.touchstart);
+        element.removeEventListener('mouseend', this.finishPan);
+        element.removeEventListener('touchend', this.finishPan);
+        element.removeEventListener('dblclick', this.selectObj);
+      };
     }
   });
