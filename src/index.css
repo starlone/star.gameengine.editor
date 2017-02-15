@@ -27,10 +27,6 @@ body {
   border-color: #DDD;
 }
 
-.dropdown-menu {
-  z-index: 9;
-}
-
 .navbar.navbar-default {
   margin-bottom: 10px;
 }
@@ -57,7 +53,6 @@ canvas {
 .sidebar {
   bottom: auto;
   padding-top: 10px;
-  z-index: 8;
 }
 
 .sidebar1 {
