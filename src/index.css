@@ -11,6 +11,10 @@ body {
   color: white;
 }
 
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:hover {
+  color: #FAFAFA;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
   background-color: white;
 }

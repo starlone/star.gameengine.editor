@@ -61,7 +61,8 @@
       "expect": true,
       "angular": true,
       "se": true,
-      "$": true
+      "$": true,
+      "saveAs": true
     },
     "root": true,
     "env": {

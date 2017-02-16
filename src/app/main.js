@@ -1,5 +1,3 @@
-/* global $:true */
-
 angular
   .module('app')
   .component('app', {
@@ -20,6 +18,12 @@ angular
       vm.clear = function () {
         $localStorage.save = null;
         $window.location.reload();
+      };
+
+      vm.export = function () {
+        var json = JSON.stringify(vm.game.getSceneCurrent().json());
+        var blob = new Blob([json], {type: 'text/plain;charset=utf-8'});
+        saveAs(blob, 'scene.json');
       };
 
       vm.resize = function () {

@@ -58,7 +58,9 @@ angular
 
       $(document).off('seDrawEnd');
       $(document).on('seDrawEnd', function () {
-        $managegame.selected.setRigidBody(new se.RigidBody());
+        if ($managegame.selected) {
+          $managegame.selected.setRigidBody(new se.RigidBody());
+        }
         $managegame.setSelected(null);
         $scope.$apply();
       });
