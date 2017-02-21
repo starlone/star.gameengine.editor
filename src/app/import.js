@@ -16,7 +16,7 @@ angular
           vm.sejson = this.result;
           vm.$apply();
         };
-        reader.readAsBinaryString(file);
+        reader.readAsText(file);
       });
 
       vm.fileimport = function () {

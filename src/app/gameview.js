@@ -5,7 +5,7 @@ angular
       ngGame: '=',
       interaction: '='
     },
-    templateUrl: 'app/panels/panel_gameview.html',
+    templateUrl: 'app/gameview.html',
     controller: function ($element, $scope, $managegame) {
       var vm = $scope;
 

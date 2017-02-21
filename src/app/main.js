@@ -23,7 +23,7 @@ angular
       vm.export = function () {
         $managegame.setSelected();
         var json = JSON.stringify(vm.game.getSceneCurrent().json());
-        var blob = new Blob([json], {type: 'text/plain;charset=utf-8'});
+        var blob = new Blob([json], {type: 'application/json;charset=utf-8'});
         saveAs(blob, 'scene.json');
       };
 
