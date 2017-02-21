@@ -11,7 +11,7 @@
         scene = se.load.scene(json);
       } else {
         scene = new se.Scene(new se.GradientRenderer('#004CB3', '#8ED6FF'));
-        var ground = se.factory.rect({name: 'Ground', x: 1000, y: 250, w: 3800, h: 30, fillColor: 'green', rigidopts: {isStatic: true}});
+        var ground = se.factory.rect({name: 'Ground', x: 1000, y: 250, w: 3800, h: 30, fillColor: 'green', isStatic: true});
         scene.add(ground);
       }
       game.addScene(scene);
