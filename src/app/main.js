@@ -2,7 +2,7 @@ angular
   .module('app')
   .component('app', {
     templateUrl: 'app/main.html',
-    controller: function ($scope, $managegame, $localStorage, $compile) {
+    controller: function ($scope, $managegame, $localStorage, $semodal) {
       var vm = $scope;
       vm.game = $managegame.game;
       vm.manage = $managegame;
@@ -29,10 +29,7 @@ angular
 
       vm.import = function () {
         $managegame.setSelected();
-        $('se-import').remove();
-        var modal = angular.element('<se-import />');
-        $('ui-view').append(modal);
-        $compile(modal)($scope);
+        $semodal.show(vm, '<se-import />');
       };
 
       vm.resize = function () {

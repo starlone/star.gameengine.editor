@@ -2,11 +2,9 @@ angular
   .module('app')
   .component('seImport', {
     templateUrl: 'app/import.html',
-    controller: function ($scope, $managegame, $compile) {
+    controller: function ($scope, $managegame, $compile, $semodal) {
       var vm = $scope;
       vm.sejson = '';
-      var modal = $('se-import > div');
-      modal.modal();
 
       $('se-import input[type=file]').on('change', function (e) {
         var files = e.target.files;
@@ -24,9 +22,9 @@ angular
         var scene = se.load.scene(json);
         $managegame.game.scenes[0] = scene;
         $managegame.scene = scene;
-        modal.modal('hide');
         var div = $('se-panelproject').html('');
         $compile(div)($scope);
+        $semodal.hide();
       };
     }
   });
