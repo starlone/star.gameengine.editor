@@ -1,16 +1,15 @@
 angular
   .module('app')
-  .component('seNewrect', {
-    templateUrl: 'app/newrect.html',
+  .component('seNewcircle', {
+    templateUrl: 'app/newcircle.html',
     controller: function ($scope, $managegame, $semodal) {
       var vm = $scope;
       vm.scene = $managegame.game.getSceneCurrent();
-      vm.width = 50;
-      vm.height = 50;
-      vm.name = 'Rect';
+      vm.radius = 20;
+      vm.name = 'Circle';
 
       vm.submit = function () {
-        var obj = se.factory.rect({name: vm.name, x: 0, y: 0, w: vm.width, h: vm.height, fillColor: '#b0bec5'});
+        var obj = se.factory.circle({name: vm.name, x: 0, y: 0, radius: vm.radius, fillColor: '#b0bec5', lineWidth: 1});
         vm.scene.add(obj);
         $managegame.setSelected(obj);
         $semodal.hide();
