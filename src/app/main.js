@@ -40,9 +40,6 @@ angular
         }
       };
 
-      window.addEventListener('resize', function () {
-        vm.resize();
-      });
       vm.resize();
     }
   });
