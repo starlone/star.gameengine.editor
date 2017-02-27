@@ -1,9 +1,11 @@
-<div class="form-group">
-    <label for="sefile">File input</label>
-    <input id="sefile" type="file" ></input>
-</div>
-<div class="form-group">
-    <label for="sejson">Scene</label>
-    <textarea ng-model="sejson" id="sejson" class="form-control" rows="10"></textarea>
-</div>
-<button type="submit" ng-click="fileimport()" class="btn btn-primary">Import</button>
+<form ng-submit="submit()">
+    <div class="form-group">
+        <label for="sefile">File input</label>
+        <input id="sefile" type="file" accept=".json"></input>
+    </div>
+    <div class="form-group">
+        <label for="sejson">Scene</label>
+        <textarea ng-model="sejson" id="sejson" class="form-control" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Import</button>
+</form>

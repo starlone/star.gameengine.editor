@@ -17,7 +17,7 @@ angular
         reader.readAsText(file);
       });
 
-      vm.fileimport = function () {
+      vm.submit = function () {
         var json = JSON.parse(vm.sejson);
         var scene = se.load.scene(json);
         $managegame.game.scenes[0] = scene;
