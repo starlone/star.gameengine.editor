@@ -1,4 +1,4 @@
-<form>
+<form ng-submit="submit()">
     <div class="form-group">
         <label for="rname">Name</label>
         <input ng-model="name" id="rname" class="form-control"></input>
@@ -7,5 +7,5 @@
         <label for="rradius">Radius</label>
         <input type="number" ng-model="radius" id="rradius" class="form-control"></input>
     </div>
-    <button type="submit" ng-click="submit()" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Create</button>
 </form>
