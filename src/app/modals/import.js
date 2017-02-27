@@ -1,7 +1,7 @@
 angular
   .module('app')
   .component('seImport', {
-    templateUrl: 'app/import.html',
+    templateUrl: 'app/modals/import.html',
     controller: function ($scope, $managegame, $compile, $semodal) {
       var vm = $scope;
       vm.sejson = '';

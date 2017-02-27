@@ -24,7 +24,7 @@
       };
     })
     .component('seModal', {
-      templateUrl: 'app/modal.html',
+      templateUrl: 'app/utils/modal.html',
       transclude: true,
       controller: function () {
         var modal = $('se-modal > div');
