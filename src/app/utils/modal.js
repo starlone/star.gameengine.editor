@@ -13,9 +13,6 @@
 
       function hide() {
         $('se-modal .close').click();
-        $('se-modal .modal').on('hidden.bs.modal', function () {
-          $('se-modal').remove();
-        });
       }
 
       return {
@@ -29,6 +26,9 @@
       controller: function () {
         var modal = $('se-modal > div');
         modal.modal();
+        modal.on('hidden.bs.modal', function () {
+          $('se-modal').remove();
+        });
       }
     });
 })();
