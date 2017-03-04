@@ -39,6 +39,9 @@ angular
           $('.sidebar').removeClass('sidebar-open');
         }
       };
+      vm.closePanels = function () {
+        $('.sidebar').sidebar('hide');
+      };
 
       vm.resize();
     }
