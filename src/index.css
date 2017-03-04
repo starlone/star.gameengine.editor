@@ -35,3 +35,6 @@ canvas {
   margin-top: 10px;
 }
 
+se-panelproject .list-group-item {
+  cursor: pointer;
+}
