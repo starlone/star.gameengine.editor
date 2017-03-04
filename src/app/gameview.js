@@ -16,6 +16,7 @@ angular
       this.$onInit = function () {
         vm.game = this.ngGame;
         vm.game.viewport = viewport;
+        viewport.scale(vm.game.getSceneCurrent().zoomCamera);
 
         var interaction = this.interaction || true;
 

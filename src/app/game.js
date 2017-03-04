@@ -11,10 +11,13 @@
         scene = se.load.scene(json);
       } else {
         scene = new se.Scene(new se.GradientRenderer('#004CB3', '#8ED6FF'));
-        var terrain = new se.GameObject('Terrain', 1000, 250);
+        var terrain = new se.GameObject('Terrain', 0, 0);
+        // var terrain = se.factory.rect({name: 'Terrain', x: 0, y: 100, w: 3800, h: 30, fillColor: 'green', isStatic: true});
         scene.add(terrain);
-        var ground = se.factory.rect({name: 'Ground', x: 0, y: 0, w: 3800, h: 30, fillColor: 'green', isStatic: true});
-        terrain.addChild(ground);
+        var platform1 = se.factory.rect({name: 'Platform1', x: 0, y: 200, w: 2800, h: 30, fillColor: 'green', isStatic: true});
+        terrain.addChild(platform1);
+        var platform2 = se.factory.rect({name: 'Platform2', x: 3000, y: 200, w: 2800, h: 30, fillColor: 'green', isStatic: true});
+        terrain.addChild(platform2);
       }
       game.addScene(scene);
       game.run();
