@@ -23,23 +23,5 @@ angular
           $managegame.setDraw(obj);
         }
       };
-
-      vm.showObject = function (obj) {
-        $managegame.setSelected(obj);
-      };
-
-      vm.deleteObj = function () {
-        $managegame.deleteSelected();
-      };
-      vm.editObj = function () {
-        $managegame.setEditable();
-      };
-      vm.copyObj = function () {
-        var obj = $managegame.selected;
-        $managegame.setSelected(null); // Remove style of selected
-        var newobj = obj.clone();
-        vm.scene.add(newobj);
-        this.showObject(newobj);
-      };
     }
   });

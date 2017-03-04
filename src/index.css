@@ -38,3 +38,17 @@ canvas {
 se-panelproject .list-group-item {
   cursor: pointer;
 }
+
+
+se-panelproject .list-group-item ul {
+  margin: 10px 0 0 0;
+}
+
+se-panelproject .list-group-item.active ul {
+  color: #333;
+}
+
+.icon-blank {
+  width: 24px;
+  display: inline-block;
+}

@@ -1,0 +1,17 @@
+<li class="list-group-item" ng-class="{active: obj == manage.selected}">
+    <div class="name" ng-click="showObject(obj)">
+        <ng-md-icon icon="expand_less" ng-if="children.length && expanded" ng-click="colapsed(false)"></ng-md-icon>
+        <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" ng-click="colapsed(true)"></ng-md-icon>
+        <span class="icon-blank" ng-if="!children.length"></span>
+        {{obj.name}}
+        <span ng-show="obj == manage.selected" class="pull-right">
+            <!-- <ng-md-icon  icon="edit" ng-click="editObj()" ng-show="obj == manage.selected" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon> -->
+            <ng-md-icon  icon="content_copy" ng-click="copyObj()" data-toggle="tooltip" data-placement="left" title="Duplicate"></ng-md-icon>
+            <ng-md-icon  icon="delete" ng-click="deleteObj()" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon>
+        </span>
+    </div>
+    <ul ng-if="children.length && expanded" class="list-group">
+        <se-panelproject-object ng-repeat="o in children" se-obj="o"></se-panelproject-object>
+    </ul>
+</li>
+
