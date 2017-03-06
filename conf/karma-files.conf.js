@@ -1,7 +1,7 @@
 const conf = require('./gulp.conf');
 const wiredep = require('wiredep');
 
-module.exports = function listFiles() {
+module.exports = function () {
   const wiredepOptions = Object.assign({}, conf.wiredep, {
     dependencies: true,
     devDependencies: true
