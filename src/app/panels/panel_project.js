@@ -19,7 +19,7 @@ angular
           obj = new se.GameObject('New Draw', 0, 0);
           obj.setRenderer(new se.MeshRenderer('#b0bec5', '#b0bec5', 2));
           vm.scene.add(obj);
-          vm.showObject(obj);
+          $managegame.setSelected(obj);
           $managegame.setDraw(obj);
         }
       };
