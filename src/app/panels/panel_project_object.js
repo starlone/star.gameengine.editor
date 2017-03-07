@@ -30,8 +30,8 @@ angular
         vm.scene.add(newobj);
         $managegame.setSelected(newobj);
       };
-      vm.colapsed = function (flag) {
-        vm.expanded = flag;
+      vm.teste = function () {
+        console.log('entrou');
       };
     }
   });

@@ -1,4 +1,4 @@
-<li class="list-group-item" ng-class="{active: obj == manage.selected}">
+<li class="list-group-item" ng-class="{active: obj == manage.selected}" se-drag se-drop>
     <div class="name" ng-click="showObject(obj)">
         <div class="col-xs-2">
             <ng-md-icon icon="expand_less" ng-if="children.length && expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
