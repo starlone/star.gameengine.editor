@@ -9,7 +9,6 @@ angular
       var vm = $scope;
       vm.scene = $managegame.game.getSceneCurrent();
       vm.manage = $managegame;
-      vm.expanded = true;
 
       this.$onInit = function () {
         vm.obj = this.seObj;

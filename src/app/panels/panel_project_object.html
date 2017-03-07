@@ -1,20 +1,26 @@
 <li class="list-group-item" ng-class="{active: obj == manage.selected}">
     <div class="name row" ng-click="showObject(obj)">
         <div class="col-xs-2">
-            <ng-md-icon icon="expand_less" ng-if="children.length && expanded" ng-click="colapsed(false)"></ng-md-icon>
-            <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" ng-click="colapsed(true)"></ng-md-icon>
+            <ng-md-icon icon="expand_less" ng-if="children.length && expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
+            <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
             <span class="icon-blank" ng-if="!children.length"></span>
         </div>
-        <div class="col-xs-5">
-        {{obj.name}}
+        <div class="col-xs-7">
+            {{obj.name}}
         </div>
-        <div ng-show="obj == manage.selected" class="col-xs-5">
-            <!-- <ng-md-icon  icon="edit" ng-click="editObj()" ng-show="obj == manage.selected" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon> -->
-            <ng-md-icon  icon="content_copy" ng-click="copyObj()" data-toggle="tooltip" data-placement="left" title="Duplicate"></ng-md-icon>
-            <ng-md-icon  icon="delete" ng-click="deleteObj()" data-toggle="tooltip" data-placement="left" title="Delete"></ng-md-icon>
+        <div ng-show="obj == manage.selected" class="col-xs-3">
+            <div class="btn-group dropdown-right">
+                <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <ng-md-icon icon="more_vert"></ng-md-icon>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="" ng-click="copyObj()"><ng-md-icon icon="content_copy"></ng-md-icon> Duplicate</a></li>
+                    <li><a href="" ng-click="deleteObj()"><ng-md-icon icon="delete"></ng-md-icon> Delete</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <ul ng-if="children.length && expanded" class="list-group">
+    <ul class="list-group collapse in" id="{{obj.name}}">
         <se-panelproject-object ng-repeat="o in children" se-obj="o"></se-panelproject-object>
     </ul>
 </li>

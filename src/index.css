@@ -40,12 +40,17 @@ se-panelproject .list-group-item {
 }
 
 
-se-panelproject .list-group-item ul {
+se-panelproject .panel-body .list-group-item > ul {
   margin: 10px 0 0 0;
 }
 
 se-panelproject .list-group-item.active ul {
   color: #333;
+}
+
+se-panelproject .dropdown-right .dropdown-menu {
+  right: 0;
+  left: auto;
 }
 
 .icon-blank {
