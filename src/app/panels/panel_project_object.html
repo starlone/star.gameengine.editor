@@ -1,14 +1,14 @@
 <li class="list-group-item" ng-class="{active: obj == manage.selected}">
-    <div class="name row" ng-click="showObject(obj)">
+    <div class="name" ng-click="showObject(obj)">
         <div class="col-xs-2">
             <ng-md-icon icon="expand_less" ng-if="children.length && expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
             <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
-            <span class="icon-blank" ng-if="!children.length"></span>
+            <ng-md-icon icon="web_asset" ng-if="!children.length"></ng-md-icon>
         </div>
         <div class="col-xs-7">
             {{obj.name}}
         </div>
-        <div ng-show="obj == manage.selected" class="col-xs-3">
+        <div ng-show="obj == manage.selected" class="col-xs-2">
             <div class="btn-group dropdown-right">
                 <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <ng-md-icon icon="more_vert"></ng-md-icon>
@@ -19,8 +19,9 @@
                 </ul>
             </div>
         </div>
+        &nbsp;
     </div>
-    <ul class="list-group collapse in" id="{{obj.name}}">
+    <ul class="list-group sublist collapse in" id="{{obj.name}}" ng-if="children.length">
         <se-panelproject-object ng-repeat="o in children" se-obj="o"></se-panelproject-object>
     </ul>
 </li>

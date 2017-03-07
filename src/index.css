@@ -34,18 +34,45 @@ canvas {
   padding-right: 0;
   margin-top: 10px;
 }
+.sidebar1 .panel {
+  margin-bottom: 100px;
+}
 
 se-panelproject .list-group-item {
   cursor: pointer;
 }
 
-
-se-panelproject .panel-body .list-group-item > ul {
+se-panelproject .list-group-item ul.sublist {
   margin: 10px 0 0 0;
+}
+
+se-panelproject .objects .list-group-item {
+  padding: 10px 0;
+  margin-left: 0;
+}
+
+se-panelproject .objects .list-group-item .name {
+  padding-left: 10px;
+}
+
+se-panelproject .objects .list-group-item .sublist .name {
+  padding-left: 30px;
+}
+
+se-panelproject .objects .list-group-item .sublist .sublist .name {
+  padding-left: 60px;
+}
+
+se-panelproject .objects .list-group-item .sublist .sublist .sublist .name {
+  padding-left: 90px;
 }
 
 se-panelproject .list-group-item.active ul {
   color: #333;
+}
+
+se-panelproject .list-group-item.active .sublist li {
+  background-color: #ECEFF1;
 }
 
 se-panelproject .dropdown-right .dropdown-menu {

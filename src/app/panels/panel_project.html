@@ -9,7 +9,7 @@
         <li class="list-group-item">
             <div class="btn-group">
                 <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    New <span class="caret"></span>
+                    <ng-md-icon icon="add"></ng-md-icon>New <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="" ng-click="newObject('rect')">Rect</a></li>
@@ -19,9 +19,7 @@
             </div>
         </li>
     </ul>
-    <div class="panel-body">
-        <ul class="list-group">
-            <se-panelproject-object ng-repeat="obj in scene.getObjs()" se-obj="obj"></se-panelproject-object>
-        </ul>
-    </div>
+    <ul class="list-group objects">
+        <se-panelproject-object ng-repeat="obj in scene.getObjs()" se-obj="obj"></se-panelproject-object>
+    </ul>
 </div>
