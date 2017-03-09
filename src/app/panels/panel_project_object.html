@@ -1,8 +1,8 @@
-<li class="list-group-item" ng-class="{active: obj == manage.selected}" se-drag se-drop>
+<li id="obj-{{obj.id()}}" class="list-group-item" ng-class="{active: obj == manage.selected}" se-drag se-drop draggable="{{obj == manage.selected}}">
     <div class="name" ng-click="showObject(obj)">
         <div class="col-xs-2">
-            <ng-md-icon icon="expand_less" ng-if="children.length && expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
-            <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" data-toggle="collapse" data-target="#{{obj.name}}"></ng-md-icon>
+            <ng-md-icon icon="expand_less" ng-if="children.length && expanded" data-toggle="collapse" data-target="#sub-{{obj.id()}}"></ng-md-icon>
+            <ng-md-icon icon="expand_more" ng-if="children.length && !expanded" data-toggle="collapse" data-target="#sub-{{obj.id()}}"></ng-md-icon>
             <ng-md-icon icon="web_asset" ng-if="!children.length"></ng-md-icon>
         </div>
         <div class="col-xs-7">
@@ -21,7 +21,7 @@
         </div>
         &nbsp;
     </div>
-    <ul class="list-group sublist collapse in" id="{{obj.name}}" ng-if="children.length">
+    <ul class="list-group sublist collapse in" id="sub-{{obj.id()}}" ng-if="children.length">
         <se-panelproject-object ng-repeat="o in children" se-obj="o"></se-panelproject-object>
     </ul>
 </li>

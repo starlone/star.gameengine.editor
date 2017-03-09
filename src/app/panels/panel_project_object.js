@@ -30,8 +30,5 @@ angular
         vm.scene.add(newobj);
         $managegame.setSelected(newobj);
       };
-      vm.teste = function () {
-        console.log('entrou');
-      };
     }
   });

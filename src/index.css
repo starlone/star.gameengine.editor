@@ -84,3 +84,11 @@ se-panelproject .dropdown-right .dropdown-menu {
   width: 24px;
   display: inline-block;
 }
+
+.drag {
+  opacity: 0.5;
+}
+
+.dragover {
+  background-color: #42A5F5;
+}
