@@ -27,7 +27,7 @@ angular
         var obj = $managegame.selected;
         $managegame.setSelected(null); // Remove style of selected
         var newobj = obj.clone();
-        vm.scene.add(newobj);
+        obj.getParent().add(newobj);
         $managegame.setSelected(newobj);
       };
     }
