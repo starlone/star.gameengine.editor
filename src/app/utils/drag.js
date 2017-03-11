@@ -42,12 +42,13 @@
           }, false);
 
           el.addEventListener('dragenter', function () {
-            this.classList.add('dragover');
+            this.classList.add('dragenter');
             return false;
           }, false);
 
           el.addEventListener('dragleave', function () {
             this.classList.remove('dragover');
+            this.classList.remove('dragenter');
             return false;
           }, false);
 
@@ -57,18 +58,23 @@
               e.stopPropagation();
             }
 
-            this.classList.remove('dragover');
-
             var id = e.dataTransfer.getData('objid');
             var idt = this.id.slice(4);
 
             if (id !== idt) {
-              var obj = scene.indexObjs[id];
-              var target = scene.indexObjs[idt];
+              var obj = scene.getObj(id);
+              var target = scene.getObj(idt);
 
               obj.getParent().remove(obj);
-              target.addChild(obj);
+              if (angular.element(this).hasClass('dragenter')) {
+                target.parent.addAfter(obj, target);
+              } else {
+                target.add(obj);
+              }
             }
+
+            $('.dragover').removeClass('dragover');
+            $('.dragenter').removeClass('dragenter');
 
             scope.$apply();
 

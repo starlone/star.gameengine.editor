@@ -90,5 +90,10 @@ se-panelproject .dropdown-right .dropdown-menu {
 }
 
 .dragover {
-  background-color: #42A5F5;
+  background-color: #BBDEFB;
+}
+
+.dragover.dragenter {
+  background-color: white;
+  border: 1px solid #76FF03;
 }
