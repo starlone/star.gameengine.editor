@@ -61,6 +61,21 @@
         this.selected.destroy();
       }
 
+      function cutSelected() {
+        this.transferArea = this.selected;
+      }
+
+      function pasteInSelected() {
+        var obj = this.transferArea;
+        if (obj === this.selected) {
+          return;
+        }
+        obj.getParent().remove(obj);
+        this.selected.add(obj);
+        this.setSelected(obj);
+        this.transferArea = null;
+      }
+
       function setDraw() {
         game.viewport.desactiveInteractions();
         this.drawInteraction = new se.DrawInteraction(this.selected);
@@ -78,7 +93,10 @@
         setEditable: setEditable,
         setDraw: setDraw,
         deleteSelected: deleteSelected,
-        drawInteraction: null
+        cutSelected: cutSelected,
+        pasteInSelected: pasteInSelected,
+        drawInteraction: null,
+        transferArea: null
       };
     });
 })();

@@ -23,12 +23,18 @@ angular
       vm.editObj = function () {
         $managegame.setEditable();
       };
-      vm.copyObj = function () {
+      vm.duplcateObj = function () {
         var obj = $managegame.selected;
         $managegame.setSelected(null); // Remove style of selected
         var newobj = obj.clone();
         obj.getParent().add(newobj);
         $managegame.setSelected(newobj);
+      };
+      vm.cutObj = function () {
+        $managegame.cutSelected();
+      };
+      vm.pasteObj = function () {
+        $managegame.pasteInSelected();
       };
     }
   });
